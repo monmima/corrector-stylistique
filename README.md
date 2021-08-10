@@ -1,2 +1,2 @@
 # corrector-stylistique
-Un correcteur stylistique simple
+Un simple correcteur linguistique visant à exterminer les fautes linguistiques
