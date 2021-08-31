@@ -214,6 +214,11 @@ Pourquoi donc ?
                 regexp: /&/gi,
                 explication: `Évitez l'esperluette ailleurs que dans les raisons sociales («&nbsp;Ébénisterie Lessard, Tremblay & Côté&nbsp;»).`,
                 lien: "http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3330"
+            },
+            {
+                regexp: /[0-9]+(ère|ème)s?\b/gi,
+                explication: `Les adjectif numéraux s'abrègent de cette manière&nbsp;: 1<sup>er</sup>, 1<sup>ers</sup>, 1<sup>re</sup>, 1<sup>res</sup>, 2<sup>e</sup>, 2<sup>es</sup>, etc. On mettra de préférence les caractères finaux en exposant.`,
+                lien: "https://www.academie-francaise.fr/abreviations-des-adjectifs-numeraux"
             }
         ];
 
@@ -222,6 +227,7 @@ Pourquoi donc ?
         }
 
         function check() {
+            let count = 0;
             emptyResults();
 
             // get text to analyze
@@ -239,6 +245,8 @@ Pourquoi donc ?
 
                 // display result if there are more than 0 mistakes of this type
                 if (arr.length > 0) {
+                    count++;
+        
                     const singOrPlural = arr.length > 1 ? "s" : "";
 
                     toScreen += `<hr>`;
